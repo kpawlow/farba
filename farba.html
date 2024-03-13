@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Obliczanie Ilości Farby</title>
+</head>
+<body>
+
+<h2>Obliczanie Ilości Farby</h2>
+
+<label for="width">Szerokość ściany (w metrach):</label>
+<input type="number" id="width">
+<br><br>
+<label for="height">Wysokość ściany (w metrach):</label>
+<input type="number" id="height">
+<br><br>
+<label for="coverage">Pokrycie farby (w metrach kwadratowych na litr farby):</label>
+<input type="number" id="coverage">
+<br><br>
+<button onclick="obliczanieFarby()">Oblicz</button>
+<br><br>
+<p id="result"></p>
+
+<script>
+    function obliczanieFarby() {
+        var width = parseFloat(document.getElementById('width').value);
+        var height = parseFloat(document.getElementById('height').value);
+        var coverage = parseFloat(document.getElementById('coverage').value);
+
+        if (width > 0 && height > 0 && coverage > 0) {
+            var area = width * height;
+            var paintNeeded = area / coverage;
+            document.getElementById('result').innerText = "Potrzebna ilość farby: " + paintNeeded.toFixed(2) + " litrów";
+        } else {
+            document.getElementById('result').innerText = "Podane wartości są nieprawidłowe. Upewnij się, że wszystkie pola zostały wypełnione poprawnie.";
+        }
+    }
+</script>
+<script>
+    console.log("Nasz pierwszy skrypt!");
+</script>
+</body>
+</html>
